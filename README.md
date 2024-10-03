@@ -13,5 +13,5 @@ For the AST visualization, the class will create an file with instruction with D
 # To test
 You can use 
 ```
-python CppASTVisualizator.py' 
+python CppASTVisualizator.py 
 ```
