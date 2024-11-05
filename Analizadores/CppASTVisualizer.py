@@ -5,7 +5,11 @@ from rich import print
 
 class ASTVisualizerDOT(Visitor):
     def __init__(self):
-        self.dot_lines = ["digraph G {"]
+        self.dot_lines = [
+            "digraph G {",
+            "    node [style=filled, fillcolor=deepskyblue, shape=box, fontname=Arial, color=black];",
+            "    edge [color=gray50];"
+        ]
         self.node_count = 0
 
     def new_node(self, label):
@@ -59,7 +63,6 @@ def generate_ast_from_file(file_path):
     ast = parser.parse(tokens)  # Ahora pasamos los tokens al parser
     
     return ast
-
 
 if __name__ == '__main__':
     # Leer el archivo de prueba
