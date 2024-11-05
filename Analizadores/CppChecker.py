@@ -19,7 +19,7 @@ verifican las reglas semánticas del lenguaje.
 '''
 
 from CppAST import *
-from stdlib import * #Con algunas de los nombres de funciones reservadas de C++
+from stdlib import *
 
 
 class SymbolTable:
@@ -494,4 +494,3 @@ class Checker(Visitor):
         No hacer nada
         '''
         pass
-    
