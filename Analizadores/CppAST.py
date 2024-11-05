@@ -71,8 +71,8 @@ class Visitor(metaclass=multimeta): # Clase abstracta del patrón Visitor
 
 @dataclass
 class ASTNode:
-    def accept(self, v:Visitor, *args, **kwargs):
-        return v.visit(self, *args, **kwargs)
+    def accept(self, v:Visitor):
+        return v.visit(self)
 
 @dataclass
 class Statement(ASTNode):
@@ -95,7 +95,7 @@ class Declaration(Statement):
 @dataclass
 class FuncDeclStmt(Declaration):
     type_: str
-    identifier: str
+    name: str
     params: List[Expression] = field(default_factory=list)
     body: List[Statement] = field(default_factory=list)
 
@@ -106,7 +106,7 @@ class FuncDeclStmt(Declaration):
 @dataclass
 class VarDeclStmt(Declaration):
     type_: str
-    ident: str
+    name: str
     expr: Expression
 
     @property
@@ -115,7 +115,7 @@ class VarDeclStmt(Declaration):
 
 @dataclass
 class ClassDeclStmt(Declaration):
-    class_name: str  # El nombre de la clase
+    name: str  # El nombre de la clase
     class_members: List[Declaration] = field(default_factory=list) # Las declaraciones de la clase
 
 
@@ -125,16 +125,11 @@ class ConstructorDeclStmt(ASTNode):
     params: List['VarDeclStmt']  # Lista de parámetros del constructor
     body: 'CompoundStmt'  # Cuerpo del constructor
 
-    def accept(self, visitor):
-        return visitor.visit_constructor_decl_stmt(self)
-
 @dataclass
 class DestructorDeclStmt(ASTNode):
     name: str  # Nombre de la clase para identificar el destructor
     body: 'CompoundStmt'  # Cuerpo del destructor
 
-    def accept(self, visitor):
-        return visitor.visit_destructor_decl_stmt(self)
 
 
 
@@ -145,7 +140,7 @@ Statements
 
 @dataclass
 class Program(Statement):
-    stmts: List[Statement] = field(default_factory=list)
+    decl: List[Statement] = field(default_factory=list)
 
 @dataclass
 class PrintfStmt(Statement):
@@ -207,18 +202,18 @@ class LiteralExpr(Expression):
 
 
 
-@dataclass
-class ConstExpr(Expression):
-    value: Union[int, float, bool, str]
+# @dataclass
+# class ConstExpr(Expression):
+#     value: Union[int, float, bool, str]
 
-@dataclass
-class NewArrayExpr(Expression):
-    type_: str
-    size: Expression
+# @dataclass
+# class NewArrayExpr(Expression):
+#     type_: str
+#     size: Expression
 
-    @property
-    def return_type(self):
-        return self.type_
+#     @property
+#     def return_type(self):
+#         return self.type_
 
 @dataclass
 class CallExpr(Expression):
@@ -227,17 +222,17 @@ class CallExpr(Expression):
 
 @dataclass
 class VarExpr(Expression):
-    identifier: str
+    name: str
 
-@dataclass
-class ArrayLookupExpr(Expression): #Acceso a arreglos
-    array: Expression
-    index: Expression
+# @dataclass
+# class ArrayLookupExpr(Expression): #Acceso a arreglos
+#     array: Expression
+#     index: Expression
 
-@dataclass
-class FieldAccessExpr(Expression): #Acceso a campos de clase
-    expr: Expression
-    field: str
+# @dataclass
+# class FieldAccessExpr(Expression): #Acceso a campos de clase
+#     expr: Expression
+#     field: str
 
 @dataclass
 class UnaryOpExpr(Expression):
@@ -256,41 +251,41 @@ class LogicalExpr(Expression):
     left: Expression
     right: Expression
 
-@dataclass
-class VarAssignmentExpr(Expression):
-    identifier: str
-    expr: Expression
+# @dataclass
+# class VarAssignmentExpr(Expression):
+#     name: str
+#     expr: Expression
 
-@dataclass
-class ArrayAssignmentExpr(Expression):
-    array: Expression
-    index: Expression
-    expr: Expression
+# @dataclass
+# class ArrayAssignmentExpr(Expression):
+#     array: Expression
+#     index: Expression
+#     expr: Expression
 
-@dataclass
-class IntToFloatExpr(Expression):
-    expr: Expression
+# @dataclass
+# class IntToFloatExpr(Expression):
+#     expr: Expression
 
-@dataclass
-class ArraySizeExpr(Expression):
-    array: Expression
+# @dataclass
+# class ArraySizeExpr(Expression):
+#     array: Expression
 
 @dataclass
 class AssignExpr(Expression):
     op: str
-    ident: str
+    name: str
     expr: Expression
 
 @dataclass
 class Set(Expression):
     obj: str
-    ident: str
+    name: str
     expr: Expression
 
 @dataclass
 class Get(Expression):
     obj: str
-    ident: str
+    name: str
 
 @dataclass
 class ThisExpr(Expression):
