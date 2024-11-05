@@ -9,7 +9,6 @@
 * Se utiliza la librería sly para la implementación del analizador sintáctico.
 * Se utiliza la librería rich para la impresión de los tokens identificados.
 * Se importa la lista de tokens del archivo CppLexer.py para trabajar con estos.
-* Se importa la clase CppAST para visitar cada regla y mostrarla en el AST
 
 ----> Se soluciona el problema del shift/reduce en la gramática de Mini-C++ por diferentes motivos
 
@@ -24,7 +23,6 @@ el else y asociarlo con el if más cercano, eliminando el conflicto de shift/red
 * SALVEDADES: Se usa # type: ignore para ocultar los errores de tipo en la librería sly.
 
 '''
-
 
 from CppLexer import CppLexer
 from CppAST import *
@@ -202,9 +200,9 @@ class CppParser(sly.Parser):
        "expr MODULEEQ expr") #type: ignore
     def expr(self, p):
         if isinstance(p.expr0, VarExpr):
-            return AssignExpr(p[1], p.expr0.ident, p.expr1)
+            return AssignExpr(p[1], p.expr0.name, p.expr1)
         elif isinstance(p.expr0, Get):
-            return Set(p.expr0.obj, p.expr0.ident, p.expr1)
+            return Set(p.expr0.obj, p.expr0.name, p.expr1)
         else:
             raise SyntaxError(f"{p.lineno}: Error de sintaxis. Imposible asignar a la expresión {p.expr0}")
     
@@ -301,5 +299,3 @@ if __name__ == '__main__':
 
     parse(open(sys.argv[1], encoding='utf-8').read())
 #Fin del archivo CppParser.py
-
-        
