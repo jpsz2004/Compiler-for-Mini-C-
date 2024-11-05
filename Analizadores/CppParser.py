@@ -1,3 +1,31 @@
+'''
+
+****************************************** ANALIZADOR SINTÁCTICO PARA MINI C++ ******************************************
+
+* Autor: Juan Pablo Sánchez Zapata
+* Fecha: 2024-10-03
+* Descripción: Implementación de un analizador sintáctico para soportar los tokens para el lenguaje C++ (Mini C++).
+* El analizador sintáctico se encarga de crear reglas para los tokens que conforman el lenguaje C++.
+* Se utiliza la librería sly para la implementación del analizador sintáctico.
+* Se utiliza la librería rich para la impresión de los tokens identificados.
+* Se importa la lista de tokens del archivo CppLexer.py para trabajar con estos.
+* Se importa la clase CppAST para visitar cada regla y mostrarla en el AST
+
+----> Se soluciona el problema del shift/reduce en la gramática de Mini-C++ por diferentes motivos
+
+
+* Nota importante: Para solucionar el problema de shift/reduce se modifica la precedencia de los tokens. 
+Para manejar la sentencia IF, ELSE, el conflicto de shift/reduce ocurre porque el parser no sabe si 
+debe reducir un if sin else o desplazar el else cuando lo encuentra en la entrada. 
+Con la solución planteada, al darle mayor precedencia al else, el parser siempre elegirá desplazar 
+el else y asociarlo con el if más cercano, eliminando el conflicto de shift/reduce.
+
+-------------------------------------------------------------------------------------------------------------------------
+* SALVEDADES: Se usa # type: ignore para ocultar los errores de tipo en la librería sly.
+
+'''
+
+
 from CppLexer import CppLexer
 from CppAST import *
 from rich import print
