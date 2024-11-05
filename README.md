@@ -22,9 +22,8 @@ The parser is responsible for creating rules for tokens that make up the C++ lan
 
 ----> The shift/reduce problem in Mini-C++ grammar is solved for different reasons
 
-<[!NOTE]
-   >
-   >To solve the shift/reduce problem, the precedence of tokens is modified. 
+
+>To solve the shift/reduce problem, the precedence of tokens is modified. 
 To handle the IF, ELSE statement, the shift/reduce conflict occurs because the parser does not know if 
 must shrink an if without else or move the else when it finds it in the input. 
 With the solution proposed, by giving greater precedence to the else, the parser will always choose to move 
