@@ -31,7 +31,7 @@ the else and associate it with the nearest if, eliminating the shift/reduce conf
 
 >[!NOTE]
    >
-   >Parser only needs be modified to recognize correctly the class constructos, the for loop without initialization, the arrays declaration and one line comments.
+   >Parser only needs be modified to recognize correctly the class constructors, the for loop without initialization, the arrays declaration and one line comments.
 ## Checker
 The semantic parser is responsible for verifying that the code the rules of the programming language, that is, the variables are declared before they are used, which
 the data types are correct, that the functions are declared before use, etc.  
