@@ -31,7 +31,7 @@ the else and associate it with the nearest if, eliminating the shift/reduce conf
 
 >[!NOTE]
    >
-   >Parser only needs be modified to recognize correctly the class constructors, the for loop without initialization, the arrays declaration and one line comments.
+   >Parser only needs be modified to recognize correctly the class constructors, the arrays declaration and one line comments.
 ## Checker
 The semantic parser is responsible for verifying that the code the rules of the programming language, that is, the variables are declared before they are used, which
 the data types are correct, that the functions are declared before use, etc.  
@@ -50,6 +50,13 @@ The checker is so important for this compiler. With it, we can check:
 6. Implement the iread, fread (scanf) function
 7. Implement the FOR instruction.
 8. Validate that the BREAK and CONTINUE instructions are used within WHILE/FOR instructions.
+
+## INTERPRETER
+The interpreter executes the code and evaluates its behavior by traversing the AST.
+Key points about the interpreter:
+
+* It interacts with the AST and the symbol table to execute the input program.
+* Supports execution for Mini-C++ constructs like loops, conditionals, and basic operations.
 
 # Test
 There is a file called test.mcc. You can write on it a code example written using C++. The AST class will visit any grammar rule to generate the AST youo can visualizate with the command written down.
