@@ -51,7 +51,7 @@ The checker is so important for this compiler. With it, we can check:
 7. Implement the FOR instruction.
 8. Validate that the BREAK and CONTINUE instructions are used within WHILE/FOR instructions.
 
-## INTERPRETER
+## Interpreter
 The interpreter executes the code and evaluates its behavior by traversing the AST.
 Key points about the interpreter:
 
@@ -59,12 +59,24 @@ Key points about the interpreter:
 * Supports execution for Mini-C++ constructs like loops, conditionals, and basic operations.
 
 # Test
-There is a file called test.mcc. You can write on it a code example written using C++. The AST class will visit any grammar rule to generate the AST youo can visualizate with the command written down.
-# AST Visualization
-For the AST visualization, the class will create an file with instruction with DOT format. You can use: [https://dreampuf.github.io/GraphvizOnline/#digraph%20G%20%7B%0D%0Anode0%20%5Blabel%3D"Program"%5D%3B%0D%0Anode1%20%5Blabel%3D"VarDeclStmt"%5D%3B%0D%0Anode0%20->%20node1%3B%0D%0Anode2%20%5Blabel%3D"type_%20%3D%20int"%5D%3B%0D%0Anode1%20->%20node2%3B%0D%0Anode3%20%5Blabel%3D"identifier%20%3D%20main"%5D%3B%0D%0Anode1%20->%20node3%3B%0D%0Anode4%20%5Blabel%3D"expr%20%3D%202"%5D%3B%0D%0Anode1%20->%20node4%3B%0D%0A%7D] This tool works good, and it'll show you the Tree with his nodes.
+There is a file called test.mcc. You can write on it a code example written using C++. Also, with this version you can add more files with any name
+that contains C++ code.
+For this version, there are nine files with test you can test with the next command:
 
-# To test and look the AST
-You can use 
 ```
-python CppASTVisualizer.py 
+python Cpp.py -R Pruebas/test.mcc
 ```
+
+# Help?
+
+usage: Cpp.py [-h] [-d] [-o OUT] [-l] [-a] [-D] [-p] [-I] [--sym] [-S] [-R] input\n") 
+input MiniC   program file to compiler 
+optional arguments:   
+-h, --help             show this help message and exit  
+-l, --lex              display tokens from lexer 
+-a, --AST              Display AST 
+-D, --dot              Generate AST graph as DOT format 
+-s, --sym              Dump the symbol table
+-R, --exec             Execute the generated program
+
+
