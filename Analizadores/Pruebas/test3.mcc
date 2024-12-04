@@ -1,0 +1,9 @@
+int suma(int x, int y){
+    return x + y;
+}
+
+int main(){
+    return suma(2, 6);
+}
+
+printf(main());

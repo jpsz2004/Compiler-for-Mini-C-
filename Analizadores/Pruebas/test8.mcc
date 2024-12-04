@@ -1,0 +1,15 @@
+class Persona{
+    string nombre;
+    int edad;
+
+    void mostrarInfo(){
+        printf(nombre);
+        printf(edad);
+    }
+}
+
+int main(){
+    Persona p("Ana", 30);
+
+    p.mostrarInfo();
+}

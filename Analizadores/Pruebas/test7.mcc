@@ -1,0 +1,12 @@
+void imprimir(){
+    int x = 10;
+    int y = 11;
+
+    if(x / y > 0.91){
+        printf("Hola");
+    }else{
+        printf("Adios");
+    }
+}
+
+imprimir();

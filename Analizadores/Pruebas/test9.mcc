@@ -1,0 +1,19 @@
+bool par(int n){
+    if(n % 2 == 0){
+        return true;
+    }else{
+        return false;
+    }
+}
+
+void main(){
+    int n = 5;
+
+    if(par(n) == true){
+        printf("El numero es par");
+    }else{
+        printf("El numero es impar");
+    }
+}
+
+main();

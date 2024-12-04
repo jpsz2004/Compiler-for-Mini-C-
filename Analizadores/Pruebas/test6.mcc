@@ -1,0 +1,24 @@
+int cicloWhile(int x, int y, int z){
+    while(x > y){
+        z *= 2;
+        x --;
+    }
+
+    if(z > 20){
+        printf("Hello");
+        printf(z);
+    }else{
+        printf("Bye");
+        printf(z);
+    }
+}
+
+int main(){
+    int x = 30;
+    int y = 10;
+    int z = 1;
+
+    cicloWhile(x, y, z);
+}
+
+main();

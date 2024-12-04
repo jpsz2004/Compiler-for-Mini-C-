@@ -1,0 +1,13 @@
+int fibonacci(int i, int j, int n){
+	for(int cont = 0; cont < n; cont++){
+		if (i < j){
+			printf(j);
+			i=i+j;
+		}else{
+			printf(i);
+			j=j+i;
+		}
+	}
+}
+
+fibonacci(0, 1, 20);

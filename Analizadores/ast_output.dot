@@ -1,0 +1,79 @@
+digraph AST {
+	node [color=skyblue1 shape=box style=filled]
+	edge [arrowhead=none]
+	n01 [label=Program color=green]
+	n02 [label="FunctDeclStmt\ntype:int \nname:'fibonacci' \nparams:[Parameter(type_='int', name='i'), Parameter(type_='int', name='j'), Parameter(type_='int', name='n')]" color=green]
+	n03 [label=CompoundStmt color=green]
+	n04 [label=ForStmt color=green]
+	n05 [label="VarDeclStmt\ntype:int \nname:cont" color=green]
+	n06 [label="LiteralExpr\nvalue= 0" color=green]
+	n05 -> n06 [label=init]
+	n04 -> n05 [label=init]
+	n07 [label="Binary '<'" color=green]
+	n08 [label="Variable cont"]
+	n07 -> n08 [color=green]
+	n09 [label="Variable n"]
+	n07 -> n09 [color=green]
+	n04 -> n07 [label=cond]
+	n10 [label="++\n Postfix" color=green]
+	n11 [label="Variable cont"]
+	n10 -> n11 [color=green]
+	n04 -> n10 [label=update]
+	n12 [label=CompoundStmt color=green]
+	n13 [label=IfStmt color=green]
+	n14 [label="Binary '<'" color=green]
+	n15 [label="Variable i"]
+	n14 -> n15 [color=green]
+	n16 [label="Variable j"]
+	n14 -> n16 [color=green]
+	n13 -> n14 [label=cond]
+	n17 [label=CompoundStmt color=green]
+	n18 [label=PrintfStmt color=green]
+	n19 [label="Variable j"]
+	n18 -> n19
+	n17 -> n18
+	n20 [label=ExprStmt color=green]
+	n21 [label="Assign\nname: 'i'" color=green]
+	n22 [label="Binary '+'" color=green]
+	n23 [label="Variable i"]
+	n22 -> n23 [color=green]
+	n24 [label="Variable j"]
+	n22 -> n24 [color=green]
+	n21 -> n22 [color=green]
+	n20 -> n21
+	n17 -> n20
+	n13 -> n17 [label=then]
+	n25 [label=CompoundStmt color=green]
+	n26 [label=PrintfStmt color=green]
+	n27 [label="Variable i"]
+	n26 -> n27
+	n25 -> n26
+	n28 [label=ExprStmt color=green]
+	n29 [label="Assign\nname: 'j'" color=green]
+	n30 [label="Binary '+'" color=green]
+	n31 [label="Variable j"]
+	n30 -> n31 [color=green]
+	n32 [label="Variable i"]
+	n30 -> n32 [color=green]
+	n29 -> n30 [color=green]
+	n28 -> n29
+	n25 -> n28
+	n13 -> n25 [label=else]
+	n12 -> n13
+	n04 -> n12 [label=body]
+	n03 -> n04
+	n02 -> n03
+	n01 -> n02
+	n33 [label=ExprStmt color=green]
+	n34 [label="Call " color=green]
+	n35 [label="Variable fibonacci"]
+	n34 -> n35 [color=green]
+	n36 [label="LiteralExpr\nvalue= 0" color=green]
+	n34 -> n36 [color=green]
+	n37 [label="LiteralExpr\nvalue= 1" color=green]
+	n34 -> n37 [color=green]
+	n38 [label="LiteralExpr\nvalue= 20" color=green]
+	n34 -> n38 [color=green]
+	n33 -> n34
+	n01 -> n33
+}
