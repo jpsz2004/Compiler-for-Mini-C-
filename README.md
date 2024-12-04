@@ -61,22 +61,26 @@ Key points about the interpreter:
 # Test
 There is a file called test.mcc. You can write on it a code example written using C++. Also, with this version you can add more files with any name
 that contains C++ code.
-For this version, there are nine files with test you can test with the next command:
+For this version, there are nine files with test you can test with the next command (change the file for the file you want):
 
 ```
 python Cpp.py -R Pruebas/test.mcc
 ```
 
+## Execution
+Using the program 'Cpp.py' the test are executed. On this program there are information about the AST, about de symbol table and about the lexer and tokens.
+Next, there is some more of help to run the program Cpp.py, the compiler for Mini C++
+
 # Help?
 
 usage: Cpp.py [-h] [-d] [-o OUT] [-l] [-a] [-D] [-p] [-I] [--sym] [-S] [-R] input\n") 
 input MiniC   program file to compiler 
-optional arguments:   
--h, --help             show this help message and exit  
+optional arguments: 
+-h, --help             show this help message and exit 
 -l, --lex              display tokens from lexer 
 -a, --AST              Display AST 
 -D, --dot              Generate AST graph as DOT format 
--s, --sym              Dump the symbol table
+-s, --sym              Dump the symbol table 
 -R, --exec             Execute the generated program
 
 
