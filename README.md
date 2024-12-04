@@ -74,13 +74,13 @@ Next, there is some more of help to run the program Cpp.py, the compiler for Min
 # Help?
 
 usage: Cpp.py [-h] [-d] [-o OUT] [-l] [-a] [-D] [-p] [-I] [--sym] [-S] [-R] input\n") 
-input MiniC   program file to compiler 
+* input MiniC   program file to compiler  
 optional arguments: 
--h, --help             show this help message and exit 
--l, --lex              display tokens from lexer 
--a, --AST              Display AST 
--D, --dot              Generate AST graph as DOT format 
--s, --sym              Dump the symbol table 
--R, --exec             Execute the generated program
+* -h, --help             show this help message and exit 
+* -l, --lex              display tokens from lexer 
+* -a, --AST              Display AST 
+* -D, --dot              Generate AST graph as DOT format 
+* -s, --sym              Dump the symbol table 
+* -R, --exec             Execute the generated program
 
 
