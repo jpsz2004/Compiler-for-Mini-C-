@@ -69,7 +69,9 @@ python Cpp.py -R Pruebas/test.mcc
 
 ## Execution
 Using the program 'Cpp.py' the test are executed. On this program there are information about the AST, about de symbol table and about the lexer and tokens.
-Next, there is some more of help to run the program Cpp.py, the compiler for Mini C++
+Next, there is some more of help to run the program Cpp.py, the compiler for Mini C++.
+
+This file contains the entry point for executing the Mini-C++ compiler. It supports various operations such as token display, AST visualization, symbol table dumping, and program execution.
 
 # Help?
 
